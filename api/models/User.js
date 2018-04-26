@@ -1,23 +1,24 @@
 
 
-var bcrypt = require('bcrypt');
-var uuidv4 = require('uuid/v4');
+const bcrypt = require('bcrypt');
+//const uuidv4 = require('uuid/v4');
 
 module.exports = {
 
   attributes: {
 
     id: {
-      type: 'string',
+      type: 'integer',
       primaryKey: true,
-      defaultsTo: uuidv4()
+      autoIncrement: true
+      //defaultsTo: uuidv4()
     },
 
-    empId: {
+    /*empId: {
       type: 'string',
       required: true,
       unique:true
-    },
+    },*/
     firstname: {
       type: 'string',
       required: true
@@ -37,6 +38,9 @@ module.exports = {
     role:{
       type: 'string',
       enum:['EMP','ADMIN']
+    },
+    branch: {
+      model:'branch'
     },
     toJSON: function () {
       var obj = this.toObject();
