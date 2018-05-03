@@ -13,5 +13,11 @@ module.exports.bootstrap = function(cb) {
 
   // It's very important to trigger this callback method when you are finished
   // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
-  cb();
+
+  User.findOrCreate({loginId:'admin'},{loginId:'admin',password:'admin@123',role:'ADMIN'}).exec(function(err,user) {
+    if(err) {
+      return sails.log.error("Error while creating admin in bootstrap: ",err);
+    }
+    cb();
+  })
 };

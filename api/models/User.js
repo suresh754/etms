@@ -1,43 +1,43 @@
 
 
 const bcrypt = require('bcrypt');
-//const uuidv4 = require('uuid/v4');
+const uuidv4 = require('uuid/v4');
 
 module.exports = {
 
   attributes: {
 
     id: {
-      type: 'integer',
-      primaryKey: true,
-      autoIncrement: true
-      //defaultsTo: uuidv4()
-    },
-
-    /*empId: {
       type: 'string',
-      required: true,
-      unique:true
-    },*/
+      primaryKey: true,
+      defaultsTo: uuidv4()
+    },
     firstname: {
       type: 'string',
-      required: true
+      //required: true
     },
     lastname: {
       type: 'string',
-      required: true
+      //required: true
     },
     email: {
       type: 'string',
-      required: true,
+      //required: true,
       unique: true
     },
+    loginId: {
+      type: 'string',
+      required: true,
+      unique:true
+    },
     password:{
-      type:'string'
+      type:'string',
+      required:true
     },
     role:{
       type: 'string',
-      enum:['EMP','ADMIN']
+      enum:['EMP','MANAGER','ADMIN'],
+      required:true
     },
     branch: {
       model:'branch'

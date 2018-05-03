@@ -33,8 +33,20 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': {
-    view: 'homepage'
-  }
+    view: 'homepage',
+    locals: {
+      layout: 'layout2'
+    }
+  },
+
+  '/login':'UserController.login',
+
+  '/manager/home':'ManagerController.home',
+  '/manager/transfer/list':'ManagerController.listTransfers',
+  'GET /manager/transfer/request':'ManagerController.requestTransferForm',
+  'POST /manager/transfer/request':'ManagerController.requestTransfer',
+  '/branch':'AdminController.branch',
+  'GET /branch/create':'AdminController.createBranchForm'
 
   /***************************************************************************
   *                                                                          *

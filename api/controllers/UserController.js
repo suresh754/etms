@@ -1,3 +1,6 @@
+
+const bcrypt = require('bcrypt');
+
 module.exports = {
 
   create: function(req,res) {
@@ -31,24 +34,39 @@ module.exports = {
   },
 
   login: function(req,res) {
-    let empId = req.body.empId;
-    let password = req.body.password;
+    //let empId = req.body.empId;
+    let loginId = req.param('loginId');
+    //let password = req.body.password;
+    let password = req.param('password');
 
-    User.findOne({id:empId}).exec(function(err,user) {
+
+    User.findOne({loginId:loginId}).exec(function(err,user) {
       if(err) {
         return sails.log('Error while finding Employee: ',err);
       }
 
       if(!user) {
         req.flash('errMsg','User does not exist');
-        return res.redirect('login');
+        sails.log('errMsg','User does not exist');
+        return res.redirect('/');
       }
 
 
-      bcrypt.compare(password, user.password, function(err, res) {
-        if(res === true) {
-          //password match
-        } else if(res === false) {
+      bcrypt.compare(password, user.password, function(err, match) {
+        sails.log("res:",res);
+        if(match === true) {
+          req.session.user = user;
+          switch(user.role) {
+            case 'ADMIN':
+              return res.view('admin/home');
+              break;
+            case 'MANAGER':
+              return res.view('manager/home');
+              break;
+            case 'EMP':
+              break;
+          }
+        } else if(match === false) {
           //password not match
         }
       });

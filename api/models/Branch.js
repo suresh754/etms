@@ -1,7 +1,6 @@
 
 
-var bcrypt = require('bcrypt');
-var uuidv4 = require('uuid/v4');
+const uuidv4 = require('uuid/v4');
 
 module.exports = {
 

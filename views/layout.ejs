@@ -6,7 +6,9 @@
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!--
         Stylesheets and Preprocessors
         ==============================
@@ -33,26 +35,26 @@
     <!--STYLES END-->
 
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="ext/images/icons/favicon.ico"/>
-    <!--===============================================================================================-->
+    <!--<link rel="icon" type="image/png" href="ext/images/icons/favicon.ico"/>
+
     <link rel="stylesheet" type="text/css" href="ext/vendor/bootstrap/css/bootstrap.min.css">
-    <!--===============================================================================================-->
+
     <link rel="stylesheet" type="text/css" href="ext/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <!--===============================================================================================-->
+
     <link rel="stylesheet" type="text/css" href="ext/fonts/iconic/css/material-design-iconic-font.min.css">
-    <!--===============================================================================================-->
+
     <link rel="stylesheet" type="text/css" href="ext/vendor/animate/animate.css">
-    <!--===============================================================================================-->
+
     <link rel="stylesheet" type="text/css" href="ext/vendor/css-hamburgers/hamburgers.min.css">
-    <!--===============================================================================================-->
+
     <link rel="stylesheet" type="text/css" href="ext/vendor/animsition/css/animsition.min.css">
-    <!--===============================================================================================-->
+
     <link rel="stylesheet" type="text/css" href="ext/vendor/select2/select2.min.css">
-    <!--===============================================================================================-->
+
     <link rel="stylesheet" type="text/css" href="ext/vendor/daterangepicker/daterangepicker.css">
-    <!--===============================================================================================-->
+
     <link rel="stylesheet" type="text/css" href="ext/css/util.css">
-    <link rel="stylesheet" type="text/css" href="ext/css/main.css">
+    <link rel="stylesheet" type="text/css" href="ext/css/main.css">-->
     <!--===============================================================================================-->
 
 
@@ -61,9 +63,46 @@
   </head>
 
   <body>
+
+  <div class="container">
+
+  <!--navbar-->
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Portfolio</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Gallery</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="/branch">Branch</a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Transfer
+              <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="/manager/transfer/list">Employee Transfer</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!--navbar end-->
+
     <%- body %>
 
-
+  </div>
 
     <!--
         Client-side Templates
@@ -119,21 +158,21 @@
     <!--SCRIPTS END-->
 
     <!--===============================================================================================-->
-    <script src="ext/vendor/jquery/jquery-3.2.1.min.js"></script>
-    <!--===============================================================================================-->
+    <!--<script src="ext/vendor/jquery/jquery-3.2.1.min.js"></script>
+
     <script src="ext/vendor/animsition/js/animsition.min.js"></script>
-    <!--===============================================================================================-->
+
     <script src="ext/vendor/bootstrap/js/popper.js"></script>
     <script src="ext/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <!--===============================================================================================-->
+
     <script src="ext/vendor/select2/select2.min.js"></script>
-    <!--===============================================================================================-->
+
     <script src="ext/vendor/daterangepicker/moment.min.js"></script>
     <script src="ext/vendor/daterangepicker/daterangepicker.js"></script>
-    <!--===============================================================================================-->
+
     <script src="ext/vendor/countdowntime/countdowntime.js"></script>
-    <!--===============================================================================================-->
-    <script src="ext/js/main.js"></script>
+
+    <script src="ext/js/main.js"></script>-->
 
   </body>
 </html>
