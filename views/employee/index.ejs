@@ -1,0 +1,45 @@
+<%if(req.session.user.role !== 'EMP') {%>
+<div>
+  <a href="/employee/create"><button>Create New Employee</button></a>
+</div>
+
+<br>
+
+<%}%>
+
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Role</th>
+    <th>Branch</th>
+    <th>Designation</th>
+    <%if(req.session.user.role !== 'EMP') {%>
+    <th>Action</th>
+    <%}%>
+  </tr>
+  </thead>
+  <tbody>
+
+  <%employees.forEach(employee => {
+    if(employee.role !== 'ADMIN') {
+  %>
+  <tr>
+    <td><%=employee.firstname+' '+employee.lastname%></td>
+    <td><%=employee.email%></td>
+    <td><%=employee.role%></td>
+    <td><%=employee.branch?employee.branch.name:''%></td>
+    <td><%=employee.designation%></td>
+    <%if(req.session.user.role !== 'EMP') {%>
+    <td>
+      <a href="/employee/edit?id=<%=employee.id%>"><button class="btn btn-primary">Edit</button></a>
+      <a href="/employee/delete?id=<%=employee.id%>"><button class="btn btn-danger">Delete</button></a>
+    </td>
+    <%}%>
+  </tr>
+
+  <%} })%>
+
+  </tbody>
+</table>

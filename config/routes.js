@@ -39,14 +39,33 @@ module.exports.routes = {
     }
   },
 
-  '/login':'UserController.login',
+  '/home':'AuthController.home',
+
+  'POST /login':'AuthController.login',
+  'GET /logout': 'AuthController.logout',
+
+  'GET /employee':'EmployeeController.index',
+  'GET /employee/create': 'EmployeeController.createForm',
+  'POST /employee/create': 'EmployeeController.create',
+  'GET /employee/edit': 'EmployeeController.editForm',
+  'POST /employee/edit': 'EmployeeController.update',
+  'GET /employee/delete': 'EmployeeController.delete',
+
+  'GET /branch':'BranchController.index',
+  'GET /branch/create':'BranchController.createForm',
+  'POST /branch/create': 'BranchController.create',
+
+  'GET /transfer': 'EmpTransferController.index',
+  'GET /transfer/create': 'EmpTransferController.createForm',
+  'POST /transfer/create': 'EmpTransferController.create',
+  'GET /transfer/approve': 'EmpTransferController.approve',
+  'GET /transfer/cancel': 'EmpTransferController.cancel',
 
   '/manager/home':'ManagerController.home',
   '/manager/transfer/list':'ManagerController.listTransfers',
   'GET /manager/transfer/request':'ManagerController.requestTransferForm',
   'POST /manager/transfer/request':'ManagerController.requestTransfer',
-  '/branch':'AdminController.branch',
-  'GET /branch/create':'AdminController.createBranchForm'
+
 
   /***************************************************************************
   *                                                                          *

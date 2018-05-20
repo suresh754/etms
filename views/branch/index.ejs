@@ -1,0 +1,32 @@
+<%if(req.session.user.role === 'ADMIN') {%>
+<div>
+  <a href="branch/create"><button>Create New Branch</button></a>
+</div>
+
+<br>
+
+<%}%>
+
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Manager</th>
+    <th>No. of Employees</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <%branches.forEach(branch => {%>
+  <tr>
+    <td><%=branch.name?branch.name:''%></td>
+    <td><%=branch.address?branch.address:''%></td>
+    <td><%=branch.manager?branch.manager.firstname+' '+branch.manager.lastname:''%></td>
+    <td>---</td>
+  </tr>
+
+  <%})%>
+
+  </tbody>
+</table>

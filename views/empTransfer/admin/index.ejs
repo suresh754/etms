@@ -1,0 +1,96 @@
+<div>
+  <a href="/transfer/create"><button>Create New Employee Transfer Request</button></a>
+</div>
+
+<br>
+
+
+<% if(transfers && transfers.length > 0) {
+  let urgentTransfers = transfers.filter(x => x.transferType === 'URGENT');
+  let punishmentTransfers = transfers.filter(x => x.transferType === 'PUNISHMENT');
+%>
+<h3>Urgent Transfer Requests</h3>
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Date</th>
+    <th>Designation</th>
+    <th>No. of Employees</th>
+    <th>No. of Days</th>
+    <!--<th>Experience</th>-->
+    <th>Requesting Branch</th>
+    <th>Status</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <%urgentTransfers.forEach(transfer => { %>
+
+  <tr>
+    <td><%=transfer.createdAt%></td>
+    <td><%=transfer.designation%></td>
+    <td><%=transfer.numOfEmployees%></td>
+    <td><%=transfer.numOfDays%></td>
+    <!--<td></%=transfer.experience%/></td>-->
+    <td><%=transfer.branchSrc.name%></td>
+    <td><%=transfer.status%></td>
+    <td>
+      <%if(transfer.status === 'REQUESTED') {%>
+      <a href="/transfer/approve?id=<%=transfer.id%>"><button class="btn btn-primary">Approve</button></a>
+      <a href="/transfer/cancel?id=<%=transfer.id%>"><button class="btn btn-danger">Cancel</button></a>
+      <%}%>
+    </td>
+  </tr>
+
+  <% })%>
+
+  </tbody>
+</table>
+
+<br>
+
+<h3>Punishment Transfer Requests</h3>
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Date</th>
+    <th>Designation</th>
+    <th>No. of Employees</th>
+    <th>No. of Days</th>
+    <!--<th>Experience</th>-->
+    <th>Requesting Branch</th>
+    <th>Transfer To</th>
+    <th>Status</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <%punishmentTransfers.forEach(transfer => { %>
+
+  <tr>
+    <td><%=transfer.createdAt%></td>
+    <td><%=transfer.designation%></td>
+    <td><%=transfer.numOfEmployees%></td>
+    <td><%=transfer.numOfDays%></td>
+    <!--<td></%=transfer.experience%/></td>-->
+    <td><%=transfer.branchSrc.name%></td>
+    <td><%=transfer.branchDest.name%></td>
+    <td><%=transfer.status%></td>
+    <td>
+      <%if(transfer.status === 'REQUESTED') {%>
+      <a href="/transfer/approve?id=<%=transfer.id%>"><button class="btn btn-primary">Approve</button></a>
+      <a href="/transfer/cancel?id=<%=transfer.id%>"><button class="btn btn-danger">Cancel</button></a>
+      <%}%>
+    </td>
+  </tr>
+
+  <% })%>
+
+  </tbody>
+</table>
+
+<%
+}
+%>

@@ -27,13 +27,25 @@ module.exports = {
     experience: {
       type: 'string'
     },
-    branch: {
+    branchSrc: {
       model: 'branch',
       required: true
     },
+    branchDest: {
+      model: 'branch',
+    },
     transferType: {
       type: 'string',
+      enum: ['URGENT','PUNISHMENT'],
       required: true
+    },
+    status: {
+      type: 'string',
+      enum: ['REQUESTED','APPROVED','CANCELLED'],
+      defaultsTo: 'REQUESTED'
+    },
+    createdAt: {
+      type: 'datetime'
     }
   },
   autoPK: false

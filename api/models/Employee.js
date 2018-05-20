@@ -22,12 +22,12 @@ module.exports = {
     },
     email: {
       type: 'string',
-      //required: true,
+      required: true,
       unique: true
     },
     loginId: {
       type: 'string',
-      required: true,
+      //required: true,
       unique:true
     },
     password:{
@@ -41,6 +41,14 @@ module.exports = {
     },
     branch: {
       model:'branch'
+    },
+    designation: {
+      type:'string',
+      required:true
+    },
+    enabled: {
+      type:'boolean',
+      defaultsTo:false
     },
     toJSON: function () {
       var obj = this.toObject();

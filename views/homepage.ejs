@@ -2,6 +2,7 @@
 <div class="limiter">
   <div class="container-login100">
     <div class="wrap-login100">
+      <div class="alert alert-danger"><%=req.flash('errMsg')%></div>
       <form class="login100-formSKG validate-formSKG" action="/login" method="post">
 					<span class="login100-form-title p-b-26">
 						Welcome

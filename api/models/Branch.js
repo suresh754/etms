@@ -22,7 +22,7 @@ module.exports = {
       required: true
     },
     manager: {
-      model:'user'
+      model:'employee'
     }
   },
   autoPK: false

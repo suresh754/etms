@@ -26,7 +26,7 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': true,
+   '*': 'login',
 
   /***************************************************************************
   *                                                                          *
@@ -48,4 +48,30 @@ module.exports.policies = {
 		// before letting any users feed our rabbits
 		// feed : ['isNiceToAnimals', 'hasRabbitFood']
 	// }
+
+  AuthController : {
+    '*': true,
+    'home':'login'
+  },
+  BranchController : {
+    'index': 'login',
+    'createForm':['login','admin'],
+    'create':['login','admin']
+  },
+  EmployeeController : {
+    'index': 'login',
+    'createForm': ['login','adminOrManager'],
+    'create':['login','adminOrManager'],
+    'editForm': ['login','adminOrManager'],
+    'update': ['login','adminOrManager'],
+    'delete': ['login','adminOrManager']
+  },
+  EmpTransferController : {
+    'index': ['login','adminOrManager'],
+    'createForm':['login','manager'],
+    'create':['login','manager'],
+    'approve': ['login','admin'],
+    'cancel': ['login','admin']
+  }
+
 };
